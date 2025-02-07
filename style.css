@@ -46,10 +46,7 @@ body {
     flex: 1;
     position: relative;
   }
-  
-  .cart__list {
-    flex: 1;
-  }
+
   
   .inventory__list, .cart__list {
     list-style: none;
@@ -157,7 +154,6 @@ body {
   }
   
   .cart-item[data-editing="true"] {
-    justify-content: flex-start;
     padding-left: 15px;
   }
   
