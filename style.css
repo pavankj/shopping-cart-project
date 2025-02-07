@@ -71,7 +71,6 @@ body {
 }
   
   .item-name {
-    flex: 1;
     font-size: 16px;
     text-align: center;   
     margin-left: 15px;   
