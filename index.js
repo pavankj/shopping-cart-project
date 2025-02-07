@@ -2,14 +2,17 @@ const API = (() => {
   const URL = "http://localhost:3000";
   
   const getCart = () => {
+    // define your method to get cart data
     return fetch(`${URL}/cart`).then(res => res.json());
   };
 
   const getInventory = () => {
+    // define your method to get inventory data
     return fetch(`${URL}/inventory`).then(res => res.json());
   };
 
   const addToCart = (inventoryItem) => {
+    // define your method to add an item to cart
     return fetch(`${URL}/cart`, {
       method: "POST",
       headers: {
@@ -20,6 +23,7 @@ const API = (() => {
   };
 
   const updateCart = (id, newAmount) => {
+    // define your method to update an item in cart
     return fetch(`${URL}/cart/${id}`, {
       method: "PATCH",
       headers: {
@@ -30,12 +34,14 @@ const API = (() => {
   };
 
   const deleteFromCart = (id) => {
+    // define your method to delete an item in cart
     return fetch(`${URL}/cart/${id}`, {
       method: "DELETE",
     }).then(res => res.json());
   };
 
   const checkout = () => {
+    // you don't need to add anything here
     return getCart().then((data) =>
       Promise.all(data.map((item) => deleteFromCart(item.id)))
     );
@@ -52,6 +58,7 @@ const API = (() => {
 })();
 
 const Model = (() => {
+  // implement your logic for Model
   class State {
     #onChange;
     #inventory;
@@ -92,18 +99,18 @@ const Model = (() => {
 })();
 
 const View = (() => {
+  // implement your logic for View
   const renderInventory = (inventory, handleAddToCart) => {
     const inventoryList = document.querySelector('.inventory__list');
     const amounts = {};
     
-    // Store current amounts before re-render
+
     inventoryList.querySelectorAll('.inventory-item').forEach(item => {
       const id = item.querySelector('.add-to-cart-btn').dataset.id;
       const amount = item.querySelector('.amount').textContent;
       amounts[id] = amount;
     });
 
-    // Clear the list
     inventoryList.innerHTML = '';
 
     inventory.forEach(item => {
@@ -137,7 +144,7 @@ const View = (() => {
       li.appendChild(increaseBtn);
       li.appendChild(addToCartBtn);
 
-      // Add event listeners
+
       decreaseBtn.addEventListener('click', () => {
         let amount = parseInt(amountSpan.textContent);
         if (amount > 0) {
@@ -201,7 +208,6 @@ const View = (() => {
         li.appendChild(increaseBtn);
         li.appendChild(saveBtn);
 
-        // Add event listeners for edit mode
         decreaseBtn.addEventListener('click', () => {
           let amount = parseInt(amountSpan.textContent);
           if (amount > 1) {
@@ -235,7 +241,6 @@ const View = (() => {
         li.appendChild(deleteBtn);
         li.appendChild(editBtn);
 
-        // Add event listeners
         deleteBtn.addEventListener('click', () => handleDelete(item.id));
         editBtn.addEventListener('click', () => handleEdit(item.id));
       }
@@ -249,7 +254,9 @@ const View = (() => {
     renderCart,
   };
 })();
+
 const Controller = ((model, view) => {
+  // implement your logic for Controller
   const state = new model.State();
 
   const handleAddToCart = (itemId, amount) => {

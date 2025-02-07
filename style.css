@@ -17,7 +17,7 @@ body {
     padding: 40px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0px;  /* Reduced from 40px to 20px to bring sections closer */
+    gap: 0px; 
     border: 2px solid #333;
     border-radius: 12px;
     background-color: #f5f5f5;
@@ -29,9 +29,9 @@ body {
   
   h1 {
     font-size: 32px;
-    margin: 20px 0 20px;  /* Reduced margin */
+    margin: 20px 0 20px;
     font-weight: bold;
-    text-align: center;   /* Centered title */
+    text-align: center;   
   }
   
   .cart-container {
@@ -59,7 +59,7 @@ body {
   
   .inventory-item, .cart-item {
     background-color: #e8e1d2;
-    margin: 0 0 17px 0;  /* Increased from 8px to 16px to add more space between items */
+    margin: 0 0 17px 0; 
     padding: 8px;
     border-radius: 5px;
     display: flex;
@@ -73,18 +73,18 @@ body {
   .item-name {
     flex: 1;
     font-size: 16px;
-    text-align: center;     /* Keep text left aligned */
-    margin-left: 15px;    /* Added margin for proper alignment */
+    text-align: center;   
+    margin-left: 15px;   
   }
   
   button {
-    padding: 4px 10px;    /* Reduced padding */
+    padding: 4px 10px;   
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
     font-family: inherit;
-    min-height: 24px;     /* Reduced height */
+    min-height: 24px;    
     line-height: 1;
     display: flex;
     align-items: center;
@@ -94,7 +94,7 @@ body {
   .decrease-btn {
     background-color: #dc3545;
     color: white;
-    width: 28px;         /* Fixed width for square buttons */
+    width: 28px;         
     height: 24px;
     padding: 0;
   }
@@ -126,11 +126,11 @@ body {
   }
   
   .save-btn {
-    background-color: #f8f9fa;    /* Light gray background */
-    color: #212529;              /* Dark gray text */
-    border: none;                /* Removed border */
-    padding: 6px 16px;           /* Increased padding */
-    font-weight: 500;            /* Medium weight */
+    background-color: #f8f9fa;    
+    color: #212529;              
+    border: none;                
+    padding: 6px 16px;           
+    font-weight: 500;           
     font-family: sans-serif;
 }
   
@@ -152,13 +152,11 @@ body {
     text-align: center;
     font-weight: normal;
   }
-  
-  /* Adjustments for cart items */
+
   .cart-item .item-name {
     margin-left: 15px;
   }
   
-  /* When in edit mode */
   .cart-item[data-editing="true"] {
     justify-content: flex-start;
     padding-left: 15px;
